@@ -5,7 +5,7 @@ const ToDoList = (props) => {
   const { defaultToDoList } = props
   const [toDoList, setToDoList] = useState(defaultToDoList || [{}])
   const addNewToDo = useCallback(() => {
-    setToDoList(list => [...list, ''])
+    setToDoList(list => [...list, {}])
   }, [])
   return (
     <ul>

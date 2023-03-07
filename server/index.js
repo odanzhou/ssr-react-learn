@@ -7,6 +7,7 @@ import { fetchData } from '../mock'
 app.get('/', async (req, res) => {
   const data = await fetchData(); // 获取数据
   const APPString = renderToString(<APP defaultToDoList={data} />)
+  // <div id="root">${APPString}</div> 这段注入代码要紧凑，换行会提示错误
   res.send(`
   <!DOCTYPE html>
   <html lang="en">
@@ -17,9 +18,7 @@ app.get('/', async (req, res) => {
       <title>Document</title>
     </head>
     <body>
-      <div id="root">
-        ${APPString}
-      </div>
+      <div id="root">${APPString}</div>
       <!--注水-->
       <script>window.data=${JSON.stringify(data)}</script>
       <script src="/index.js"></script>
