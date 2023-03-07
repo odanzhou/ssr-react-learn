@@ -1,10 +1,10 @@
 import React from 'react'
-import ToDoItem from './ToDoItem'
+import ToDoList from './ToDoList'
 
-const Index = () => {
+const APP = () => {
   return <div>
-    <ToDoItem />
+    <ToDoList />
   </div>
 }
 
-export default Index
+export default APP

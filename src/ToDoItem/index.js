@@ -7,11 +7,15 @@ const ToDoItem = (props) => {
   const finishInput = useCallback(() => {
     setIsFinished(true)
   }, [])
+  const onChange = useCallback((e) => {
+    console.log('e', e.target.value, e)
+    setInputVal(e.target.value)
+  }, [])
   return (
     <li>
       {
         !isFinished ? <>
-          <input value={inputVal} onChange={(e) => setInputVal(e.target.value)}></input>
+          <input value={inputVal} onChange={onChange}></input>
           <button onClick={finishInput}>完成</button>
         </> : <span onClick={() => setIsFinished(false)}>
           {inputVal}

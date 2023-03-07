@@ -1,10 +1,10 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import ToDoItem from '../src'
+import APP from '../src'
 import app from './app'
 
 app.get('/', (req, res) => {
-  const toDoItemString = renderToString(<ToDoItem />)
+  const APPString = renderToString(<APP />)
   res.send(`
   <!DOCTYPE html>
   <html lang="en">
@@ -16,9 +16,9 @@ app.get('/', (req, res) => {
     </head>
     <body>
       <div id="root">
-        ${toDoItemString}
+        ${APPString}
       </div>
-      
+      <script src="/index.js"></script>
     </body>
   </html>
   `)

@@ -3,7 +3,7 @@ import ToDoItem from '../ToDoItem'
 
 const ToDoList = (props) => {
   const { defaultToDoList } = props
-  const [toDoList, setToDoList] = useState(defaultToDoList)
+  const [toDoList, setToDoList] = useState(defaultToDoList || [{}])
   const addNewToDo = useCallback(() => {
     setToDoList(list => [...list, ''])
   }, [])
@@ -16,3 +16,5 @@ const ToDoList = (props) => {
     </ul>
   )
 }
+
+export default ToDoList
