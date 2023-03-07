@@ -9,7 +9,7 @@ const ToDoItem = (props) => {
   }, [])
   return (
     <li>
-      <input value={inputVal} onChange={onChange}></input>
+      <input value={inputVal} onChange={onChange} />
     </li>
   )
 }
