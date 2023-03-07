@@ -2,9 +2,11 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import APP from '../src'
 import app from './app'
+import { fetchData } from '../mock'
 
-app.get('/', (req, res) => {
-  const APPString = renderToString(<APP />)
+app.get('/', async (req, res) => {
+  const data = await fetchData(); // 获取数据
+  const APPString = renderToString(<APP defaultToDoList={data} />)
   res.send(`
   <!DOCTYPE html>
   <html lang="en">
@@ -18,6 +20,8 @@ app.get('/', (req, res) => {
       <div id="root">
         ${APPString}
       </div>
+      <!--注水-->
+      <script>window.data=${JSON.stringify(data)}</script>
       <script src="/index.js"></script>
     </body>
   </html>

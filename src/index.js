@@ -1,9 +1,10 @@
 import React from 'react'
 import ToDoList from './ToDoList'
 
-const APP = () => {
+const APP = (props) => {
+  const { defaultToDoList } = props
   return <div>
-    <ToDoList />
+    <ToDoList defaultToDoList={defaultToDoList} />
   </div>
 }
 
